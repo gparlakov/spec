@@ -1,5 +1,5 @@
-describe("<%= classify(name) %>", () => {
-  it("when then should", () => {
+describe('<%= classify(name) %>', () => {
+  it('when then should', () => {
     // arrange
     const { build } = setup().default();
     const c = build();
@@ -11,12 +11,14 @@ describe("<%= classify(name) %>", () => {
 });
 
 function setup() {
+  <%= toDeclaration() %>
   const builder = {
+    <%= toBuilderExports() %>
     default() {
       return builder;
     },
     build() {
-      return new Object();
+      return new <%= classify(name) %>(<%= toConstructorParams() %>);
     }
   };
 
